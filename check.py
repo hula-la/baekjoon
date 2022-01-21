@@ -1,11 +1,6 @@
-word = 'hello'
-
-def new():
-    a=word
-    print(word)
-    word.replace('h','')
-    a.replace('h','')
-    print(a)
-
-new()
-print(word)
+a=True
+b=1
+print(a is True)
+print(b is True)
+print(a == True)
+print(b == True)
