@@ -23,6 +23,8 @@ while n < len(word):
     n += 3*number
 else:
     print(1)
+def add(a,b):
+    return a+b
 
 
 # 오답원인: 1. wwww 2. wolfooo 와 같은 반례를 고려하지 못했음.
