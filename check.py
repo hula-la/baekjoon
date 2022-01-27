@@ -1,4 +1,3 @@
-from
-print(type(__builtins__))
-print(dir(__builtins__))
-print(__builtins__.path)
+a = [1,2,3]
+a.extend(3)
+print(a)
