@@ -1,3 +1,3 @@
-a = [1,2,3]
-a.extend(3)
-print(a)
+import math
+a,b,v=map(int,input().split())
+print(math.ceil((v-b)/(a-b)))
