@@ -1,7 +1,5 @@
 package bj;
 
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class BJ1929 {
@@ -9,19 +7,20 @@ public class BJ1929 {
 		Scanner sc = new Scanner(System.in);
 		int M = sc.nextInt();
 		int N = sc.nextInt();
+		boolean[] numsVisited = new boolean[N+1];
 		
-		Queue<Integer> nums = new LinkedList<Integer>();
-		
-		for (int i = 2;i<N;i++) {
-			nums.add(i);
-		}
-		
-		while(!nums.isEmpty()) {
-			int n = nums.poll();
-			if (n>=M) {
-				System.out.print(n+"\n");
+		for(long i = 2;i<=N;i++) {
+			if (numsVisited[(int) i]==false) {
+				if (i>=M) {
+					System.out.print(i+"\n");
+				}
+				
+				for (long j=(long)i*i;j<=N;j+=i) {
+//					System.out.println(i+" "+j);
+					numsVisited[(int) j]=true;
+				}
 			}
-			nums.removeIf(i->(i%n ==0));
+			
 		}
 
 	}

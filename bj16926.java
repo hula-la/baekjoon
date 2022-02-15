@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class bj16926_2 {
+public class bj16926 {
 	static int N,M;
 	static String[][] arr;
 	static String[][] tmp;
