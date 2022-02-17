@@ -6,8 +6,9 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class BJ20304 {
-	static char[][] nums;
-	static int N,M,len;
+	static int[] nums;
+	static int N,M;
+	static int len;
 	static int answer=0;
 	static int[][] zeroNums;
 	static int count = 0;
@@ -22,64 +23,46 @@ public class BJ20304 {
 		// 패스워드 입력을 위한 스트링토크나이저 생성
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		len = Integer.toBinaryString(N).length();
-		nums = new char[N][len];
-		
-		zeroNums = new int[len][2];
+		nums = new int[M];
+		double a = Math.log(N)/Math.log(2);
+		len = (int) Math.ceil(a);
 		
 		for(int i=0;i<M;i++) {
-			int n =Integer.parseInt(st.nextToken());
-			char[] a = Integer.toBinaryString(n).toCharArray();
-			
-			for(int j=len-a.length;j<len;j++) {
-				nums[i][j] = a[j-len+a.length];
-			}
+			nums[i] = Integer.parseInt(st.nextToken());
 		}
 		
-//		for(int i=0;i<len;i++) {
-//			for(int j=0;j<M;j++) {
-//				zeroNums[i][1] +=  nums[i][j]=='1'?1:0;
-//				zeroNums[i][0] += nums[i][j]!='1'?1:0;
-//			}
-//		}
-		
-		Find(0, new int[M], new char[len]);
+	
+		Find(0, new int[M], Integer.MAX_VALUE);
 		System.out.println(answer);
-		System.out.println(count);
 	}
 	
-	static void Find(int cnt, int[] priv, char[] currentN) {
+	static void Find(int cnt, int[] state, int min) {
 		
 		if(cnt==len) {
-//			System.out.println(String.valueOf(currentN));
-
-			if (Integer.parseInt(String.valueOf(currentN),2)<=N) {
-				int min=100;
-				int max=0;
-				for(int i=0;i<M;i++) {
-					min = Math.min(priv[i],min);
-					max = Math.max(priv[i],max);
-				}
-//				System.out.print(min+" "+(len-max));
-//				System.out.println();
-				answer = Math.max(min, answer);
-			}
+			answer = Math.max(min, answer);
 		}
 		else {
-			int[] temp = priv.clone();
-			int[] temp2 = priv.clone();
-			
-			count++;
-			for(int i=0;i<M;i++) {
-				temp[i] += nums[i][cnt]=='1'?1:0;
-				temp2[i] += nums[i][cnt]!='1'?1:0;
+			System.out.println(min);
+			System.out.println(cnt);
+			int minOne = Integer.MAX_VALUE;
+			int minZero = Integer.MAX_VALUE;
+			int[] oneState = new int[M];
+			int[] zeroState = new int[M];
+			for (int i=0;i<M;i++) {
+				if ((1>>cnt & nums[i]) !=0) {
+					oneState[i] = state[i] + 1;
+					zeroState[i] = state[i];
+				} else {
+					zeroState[i] = state[i] + 1;
+					oneState[i] = state[i];
+				}
+				minOne = Math.min(minOne, oneState[i]);
+				minZero = Math.min(minZero, zeroState[i]);
 			}
-			
-			currentN[cnt] = '0';
-			Find(cnt+1,temp,currentN);
 
-			currentN[cnt] = '1';
-			Find(cnt+1,temp2,currentN);
+			Find(cnt+1,state,minOne);
+
+			Find(cnt+1,state,minZero);
 		}
 		
 	}
