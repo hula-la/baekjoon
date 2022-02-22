@@ -3,6 +3,8 @@ package bj;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class BJ20304_2 {
@@ -24,34 +26,25 @@ public class BJ20304_2 {
 		// 패스워드 입력을 위한 스트링토크나이저 생성
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		nums = new int[M];
-		double a = Math.log(N)/Math.log(2);
-		len = (int) Math.ceil(a);
+		int[] nums = new int[M];
 		
-		for(int i=0;i<M;i++) {
+		for (int i = 0; i < M; i++) {
 			nums[i] = Integer.parseInt(st.nextToken());
 		}
 		
-	
-		Find(0, new int[M], Integer.MAX_VALUE, 0);
-		System.out.println(answer);
-		System.out.println(totalcnt);
-	}
-	
-	static void Find(int cnt, int[] state, int min, int num) {
-		System.out.println(num);
-		for
-//			for (int i = 0; i < oneState.length; i++) {
-//				System.out.print(oneState[i]);
-//			}
-//			System.out.println();
-
-			Find(cnt+1,oneState,minOne, num +(1<<cnt));
-			Find(cnt+1,zeroState,minZero, num);
-
-		}
+		// BFS를 위한 큐 생성
+		Queue<Integer> q = new LinkedList<Integer>();
 		
+		while(!q.isEmpty()) {
+			int[][] arr = new int [M][2];
+			for (int i = 0; i < M; i++) {
+				if(nums[i]&1<<<idx==0) {
+					
+				}
+			}
+			
+		}
 	}
-	
+
 }
 

@@ -35,11 +35,11 @@ public class BJ20304 {
 	
 		Find(0, new int[M], Integer.MAX_VALUE, 0);
 		System.out.println(answer);
-		System.out.println(totalcnt);
+//		System.out.println(totalcnt);
 	}
 	
 	static void Find(int cnt, int[] state, int min, int num) {
-		System.out.println("num"+num+"cnt"+cnt);
+//		System.out.println("num"+num+"cnt"+cnt);
 		if (num>N) return;
 		if(cnt==len) {
 			answer = Math.max(min, answer);
@@ -55,7 +55,7 @@ public class BJ20304 {
 			int[] zeroState = new int[M];
 			for (int i=0;i<M;i++) {
 				totalcnt++;
-				System.out.println("**"+num+"**"+cnt);
+//				System.out.println("**"+num+"**"+cnt);
 				if ((1<<cnt & nums[i]) !=0) {
 					oneState[i] = state[i];
 					zeroState[i] = state[i] + 1;
