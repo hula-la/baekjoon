@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 public class Truck extends Car{
 

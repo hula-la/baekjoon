@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,13 +37,13 @@ public class BJ2805_2 {
 				lenSum += h-mid>0?h-mid:0;
 			}
 			
-			// ê°™ì„ ë•Œ
+			// ê°™ì„ ?•Œ
 			if(lenSum==M) {
 				max = mid;
 				break;
 			}
 			
-			// í•©ì´ ë” í´ ë•Œ
+			// ?•©?´ ?” ?´ ?•Œ
 			if (lenSum>M) min=mid+1;
 			else max=mid-1;
 		}

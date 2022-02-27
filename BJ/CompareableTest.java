@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,9 +17,9 @@ public class CompareableTest {
 		
 		List<Integer>numList=Arrays.asList(i);
 		/*System.out.println(numList);
-		Collections.sort(numList);//ì˜¤ë¦„ì°¨ìˆœ
+		Collections.sort(numList);//?˜¤ë¦„ì°¨?ˆœ
 		System.out.println("1."+numList);
-		Collections.reverse(numList);//ë‚´ë¦¼ì°¨ìˆœ
+		Collections.reverse(numList);//?‚´ë¦¼ì°¨?ˆœ
 		System.out.println("2."+numList);*/
 		
 		/*Collections.sort(numList, new Comparator<Integer>() {

@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,16 +15,16 @@ public class Main {
 	static int[] privateN;
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		// ë°ì´í„° ì½ê¸°ë¥¼ ìœ„í•œ ë²„í¼ë“œë¦¬ë” ìƒì„±
+		// ?°?´?„° ?½ê¸°ë?? ?œ„?•œ ë²„í¼?“œë¦¬ë” ?ƒ?„±
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		// íŒ¨ìŠ¤ì›Œë“œ ìµœëŒ“ê°’  N ì…ë ¥
+		// ?Œ¨?Š¤?›Œ?“œ ìµœëŒ“ê°?  N ?…? ¥
 		N = Integer.parseInt(br.readLine());
-		// íŒ¨ìŠ¤ì›Œë“œì˜ ê°œìˆ˜  M ì…ë ¥
+		// ?Œ¨?Š¤?›Œ?“œ?˜ ê°œìˆ˜  M ?…? ¥
 		M = Integer.parseInt(br.readLine());
-		// íŒ¨ìŠ¤ì›Œë“œ ì…ë ¥ì„ ìœ„í•œ ìŠ¤íŠ¸ë§í† í¬ë‚˜ì´ì € ìƒì„±
+		// ?Œ¨?Š¤?›Œ?“œ ?…? ¥?„ ?œ„?•œ ?Š¤?Š¸ë§í† ?¬?‚˜?´?? ?ƒ?„±
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		
-		// Nì˜ ìµœëŒ€ê¸¸ì´ len
+		// N?˜ ìµœë?ê¸¸ì´ len
 		len = Integer.toBinaryString(N).length();
 		System.out.println("len");
 		System.out.println(len);
@@ -32,10 +32,10 @@ public class Main {
 		// nums
 		nums = new int[N][len];
 		
-		// ê° ì¸ë±ìŠ¤ì—ì„œ 0ê³¼ 1ì˜ ê°¯ìˆ˜ë¥¼ ë‚˜íƒ€ë‚´ëŠ” zeroNums ìƒì„±
+		// ê°? ?¸?±?Š¤?—?„œ 0ê³? 1?˜ ê°??ˆ˜ë¥? ?‚˜???‚´?Š” zeroNums ?ƒ?„±
 		zeroNums = new int[len][2];
 		
-		// 2ì§„ìˆ˜ ì…ë ¥
+		// 2ì§„ìˆ˜ ?…? ¥
 		for(int i=0;i<M;i++) {
 			int n =Integer.parseInt(st.nextToken());
 			char[] a = Integer.toBinaryString(n).toCharArray();
@@ -50,7 +50,7 @@ public class Main {
 		int maxIdx = 0;
 		int isOne = 0;
 		
-		// ê° idxì—ì„œ 0ê°¯ìˆ˜ì™€ 1ê°¯ìˆ˜
+		// ê°? idx?—?„œ 0ê°??ˆ˜?? 1ê°??ˆ˜
 		for(int i=0;i<len;i++) {
 			for(int j=0;j<M;j++) {
 				zeroNums[i][0] +=  nums[j][i]!=1?1:0;
@@ -85,7 +85,7 @@ public class Main {
 			visited[maxIdx] = true;
 			check[maxIdx] = isOne;
 			
-			// ì•ˆì „ê¸¸ì´ ì¤‘ ìµœì†Ÿê°’ ìœ„ì¹˜ ì°¾ê¸°
+			// ?•ˆ? „ê¸¸ì´ ì¤? ìµœì†Ÿê°? ?œ„ì¹? ì°¾ê¸°
 			min = 100;
 			int minIdx = 0;
 			for(int j=0;j<M;j++) {
@@ -110,7 +110,7 @@ public class Main {
 			max = 0;
 			maxIdx = 0;
 			isOne = 0;
-			// ìµœì†Ÿê°’ì„ ê°€ì§€ëŠ” ìˆ˜ì—ì„œ ê°€ì¥ ê°¯ìˆ˜ê°€ ë§ì€ ì¸ë±ìŠ¤ ì°¾ê¸°
+			// ìµœì†Ÿê°’ì„ ê°?ì§??Š” ?ˆ˜?—?„œ ê°??¥ ê°??ˆ˜ê°? ë§ì? ?¸?±?Š¤ ì°¾ê¸°
 			for(int j=0;j<len;j++) {
 				if (visited[j]==true) continue;
 				if (max<zeroNums[j][nums[minIdx][j]]) {

@@ -1,61 +1,64 @@
-package bj;
+package BJ;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringTokenizer;
+import java.io.*;
+import java.util.*;
+
 
 public class BJ2304 {
+	static Point[] arr;
+	static int result, maxH;
+	static class Point implements Comparable<Point>{
+		int x,h;
+		Point(int x, int h){
+			this.x=x;
+			this.h=h;
+		}
+		@Override
+		public int compareTo(Point o) {
+			return this.x-o.x;
+		}
+	}
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
-		Map<Integer, Integer> height = new HashMap<Integer, Integer>();
-		int[] idxArr = new int[N];
-		int maxH = 0;
+		arr = new Point[N];
+		maxH = 0;
 		
 		for (int i=0;i<N;i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			int idx = Integer.parseInt(st.nextToken());
 			int h = Integer.parseInt(st.nextToken());
 			maxH = Math.max(maxH, h);
-			height.put(idx,h);
-			idxArr[i] = idx;
+			arr[i]=new Point(idx,h);
 		}
 		
-		Arrays.sort(idxArr);
-		int i=0;
-		int j=N-1;
-		int lstIdx = 0;
-		int lstH = 0;
-		int result = 0;
+		Arrays.sort(arr);
 		
-		while (height.get(idxArr[i])!=maxH) {
-			if (height.get(idxArr[i])>lstH) {
-				result += lstH*(idxArr[i]-lstIdx);
-				lstH = height.get(idxArr[i]);
-				lstIdx = idxArr[i];
+		result = 0;
+		int i= cal(N-1,-1);
+		int j=cal(0,1);
+		
+		result +=(arr[i].x+1-arr[j].x)*maxH;
+		
+//		result +=
+		
+		System.out.print(result);
+	}
+	static int cal(int i, int plus) {
+		int lstIdx = 0;int lstH = 0;
+		
+		while (arr[i].h!=maxH) {
+			if (arr[i].h>lstH) {
+				result += lstH*plus*(arr[i].x-lstIdx);
+//				System.out.println(result);
+				lstH = arr[i].h;
+				lstIdx = arr[i].x;
 			}
-			i++;
+			i+=plus;
 		}
-		result += lstH*(idxArr[i]-lstIdx);
-		
-		lstIdx = 0;
-		lstH = 0;
-		
-		while (height.get(idxArr[j])!=maxH) {
-			if (height.get(idxArr[j])>lstH) {
-				result += lstH*(lstIdx-idxArr[j]);
-				lstH = height.get(idxArr[j]);
-				lstIdx = idxArr[j];
-			}
-			j--;
-		}
-		result += lstH*(lstIdx-idxArr[j]) + (idxArr[j]+1-idxArr[i])*maxH;
-		
-		System.out.println(result);
+		result += lstH*plus*(arr[i].x-lstIdx);
+		return i;
 	}
 }

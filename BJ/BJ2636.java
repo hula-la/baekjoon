@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -40,7 +40,7 @@ public class BJ2636 {
 //			print(map);
 			
 			int meltSum = 0;
-			// 2인 치즈 찾아서 없애기
+			// 2?�� 치즈 찾아?�� ?��?���?
 			for (int i = 0; i < H; i++) {
 				for (int j = 0; j < W; j++) {
 					if (map[i][j] == 1) {
@@ -65,7 +65,7 @@ public class BJ2636 {
 //		System.out.println(" " +j);
 		if (i<0||i>=H||j<0||j>=W) return;
 		if (map[i][j] == -t) return;
-		// 치즈일 경우
+		// 치즈?�� 경우
 		if (map[i][j] == 1) {
 			map[i][j] = -t; 
 			return;

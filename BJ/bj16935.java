@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class bj16935 {
 		
 		arr = new String[N][M];
 		
-		// ë°°ì—´ ìž…ë ¥
+		// ë°°ì—´ ?ž…? ¥
 		for (int i=0;i<N;i++) {
 			StringTokenizer st2 = new StringTokenizer(br.readLine());
 
@@ -32,7 +32,7 @@ public class bj16935 {
 		
 		StringTokenizer st2 = new StringTokenizer(br.readLine());
 		
-		// ìˆœì„œ ëŒ€ë¡œ ì—°ì‚°
+		// ?ˆœ?„œ ??ë¡? ?—°?‚°
 		for(int r=0;r<R;r++) {
 			int m = Integer.parseInt(st2.nextToken());
 			switch(m) {

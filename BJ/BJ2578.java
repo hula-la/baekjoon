@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -41,7 +41,7 @@ public class BJ2578 {
 				bingoA[0][x] = check(x,y,0);
 				bingoA[1][y] = check(x,y,1);
 				
-				// ê²€ì‚¬
+				// ê²??‚¬
 				int bingoNum = 0;
 				for(int i1=0;i1<3;i1++) {
 					for(int j1=0;j1<5;j1++) {

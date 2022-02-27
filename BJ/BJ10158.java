@@ -1,35 +1,18 @@
-package bj;
+package BJ;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class BJ10158 {
-	public static void main(String[] args) throws NumberFormatException, IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		boolean[][] paper = new boolean[101][101];
-		int sumA = 0;
-		
-		for (int i=0;i<4;i++) {
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			
-			int x = Integer.parseInt(st.nextToken());
-			int y = Integer.parseInt(st.nextToken());
-			int w = Integer.parseInt(st.nextToken());
-			int h = Integer.parseInt(st.nextToken());
-			
-			for (int j=x;j<w;j++) {
-				for (int k=y;k<h;k++) {
-					if (paper[j][k] != true){
-						sumA ++;
-						paper[j][k] = true;
-					}
-				}
-			}
-			
-		}
-		
-		System.out.print(sumA);
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int W,H,p,q,t,x,y;
+		W=s.nextInt();
+		H=s.nextInt();
+		p=s.nextInt();
+		q=s.nextInt();
+		t=s.nextInt();
+		x=(p+t)/W%2==0?(p+t)%W:W-(p+t)%W;
+		y=(q+t)/H%2==0?(q+t)%H:H-(q+t)%H;
+		System.out.print(x+" "+y);
 	}
 }

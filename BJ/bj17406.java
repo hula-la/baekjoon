@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class bj17406 {
 		
 		arr=new int[N][M];
 		visited = new boolean[K];
-		// ë°°ì—´ ìž…ë ¥
+		// ë°°ì—´ ?ž…? ¥
 		for (int i=0;i<N;i++) {
 			StringTokenizer st2 = new StringTokenizer(br.readLine());
 			for (int j=0;j<M;j++) {
@@ -32,7 +32,7 @@ public class bj17406 {
 		}
 		
 		rArr = new int[K][3];
-		// ëª…ë ¹ ìž…ë ¥
+		// ëª…ë ¹ ?ž…? ¥
 		for (int i=0;i<K;i++) {
 			StringTokenizer st3 = new StringTokenizer(br.readLine());
 			

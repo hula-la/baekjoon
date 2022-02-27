@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -41,7 +41,7 @@ public class bj16926 {
 		}
 	}
 	
-	//돌리는 메서드
+	//?��리는 메서?��
 	static void rotate(int totalR) {
 		tmp = new String[N][M];
 		for (int R = 0; R < totalR; R++) {

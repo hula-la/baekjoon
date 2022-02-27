@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.util.Arrays;
 import java.util.Scanner;

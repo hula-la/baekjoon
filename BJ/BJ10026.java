@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.io.*;
 import java.util.*;

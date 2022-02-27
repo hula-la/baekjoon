@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,13 +35,13 @@ public class BJ2805 {
 				lenSum += tree[i] - tree[mid];
 			}
 			
-			// ê°™ì„ ë•Œ
+			// ê°™ì„ ?•Œ
 			if(lenSum==M) {
 				end = mid;
 				break;
 			}
 			
-			// í•©ì´ ë” í´ ë•Œ
+			// ?•©?´ ?” ?´ ?•Œ
 			if (lenSum>M) {
 				start=mid+1;
 			} else {

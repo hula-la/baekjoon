@@ -1,4 +1,4 @@
-package bj;
+package BJ;
 
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -12,17 +12,17 @@ public class BJ2527 {
 			rec = new int[8];
 			StringTokenizer st = new StringTokenizer(sc.nextLine());
 			
-			// 안겹침:0, 내부겹칩:1, 바깥 겹칩:2, 안쪽 겹침:3
+			// ?��겹침:0, ?���?겹칩:1, 바깥 겹칩:2, ?���? 겹침:3
 			int isfoldedX;
 			int isfoldedY;
 			
 
-			// 사각형 정보 입력
+			// ?��각형 ?���? ?��?��
 			for(int j=0;j<8;j++) {
 				rec[j] = Integer.parseInt(st.nextToken());
 			}
 			
-			// 겹침 여부 가로기준
+			// 겹침 ?���? �?로기�?
 			int foldCriteriaX = rec[0]<=rec[4]?rec[2]-rec[0]:rec[6]-rec[4];
 			int foldCriteriaY = rec[1]<=rec[5]?rec[3]-rec[1]:rec[7]-rec[5];
 			isfoldedX=foldCal(0,foldCriteriaX);
