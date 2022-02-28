@@ -5,12 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class SWEA7465 {
-	static int[] parent;
-	static int N;
+public class SWEA7465_2 {
 	
-	// 서로소 집합으로 푸는 방법
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	// 탐색으로 푸는 방법
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
 		
@@ -18,47 +16,36 @@ public class SWEA7465 {
 		
 		for (int i = 1; i <= tc; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
-			N = Integer.parseInt(st.nextToken());
+			int N = Integer.parseInt(st.nextToken());
 			int M = Integer.parseInt(st.nextToken());
 			
-			parent = new int[N+1];
-			set();
+			int[][] graph = new int[N+1][N+1];
 			
 			for (int j = 0; j < M; j++) {
 				st = new StringTokenizer(br.readLine());
 				int a = Integer.parseInt(st.nextToken());
 				int b = Integer.parseInt(st.nextToken());
-				
-				union(a,b);
+				graph[a][b] = 1;
+				graph[b][a] = 1;
 			}
+			int cnt=0;
 			boolean[] visited = new boolean[N+1];
-			int cnt = 0;
 			for (int j = 1; j <= N; j++) {
-				int p = findP(j);
-				if (!visited[p]) {
+				if (!visited[j]) {
 					cnt++;
-					visited[p]=true;
+					while
+					visited[j] = true;
+					for (int j2 = 1; j2 <= N; j2++) {
+						if(graph[j][j2]==1) visited[j2] = true;
+					}
 				}
 			}
+			
+			
 			
 			sb.append("#"+i+" "+cnt+"\n");
 			
 		}
 		System.out.println(sb);
-	}
-	
-	static void set() {
-		for (int i = 1; i <= N; i++) {
-			parent[i] = i;
-		}
-	}
-	
-	static int findP(int i) {
-		if(parent[i] == i) return i;
-		else return parent[i] = findP(parent[i]);
-	}
-	
-	static void union(int a, int b) {
-		parent[findP(b)] = findP(a);
 	}
 }
