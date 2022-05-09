@@ -3,15 +3,14 @@ package BJ;
 public class Truck{
 
 	public static void main(String[] args) throws InterruptedException {
-		BankAccount b = new BankAccount();
-		Parent p = new Parent(b);
-		Child c = new Child(b);
-		p.start();   // start(): 쓰레드를 실행하는 메서드
-		c.start();
-		p.join();    // join(): 쓰레드가 끝나기를 기다리는 메서드
-		c.join();
-		System.out.println();
-		System.out.println("balance = " + b.getBalance());
+		long x=40000;
+		long y=38001;
+		long a=20000;
+		long b=19000;
+		
+		double s = x*b-y*a;
+		System.out.println(s);
+		System.out.println(s==0);
 	}
 
 	// 계좌
